@@ -282,3 +282,17 @@ body {
     height: 250px;
   }
 }
+
+.nav_search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#searchInput {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+  width: 200px;
+}
