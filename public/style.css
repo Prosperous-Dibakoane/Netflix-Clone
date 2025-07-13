@@ -296,3 +296,17 @@ body {
   font-size: 14px;
   width: 200px;
 }
+
+#searchBtn {
+  padding: 5px 10px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#searchBtn:hover {
+  background-color: #f40612;
+}
