@@ -272,3 +272,13 @@ body {
   .row_poster {
     max-height: 140px;
   }
+
+  .modal-content {
+    width: 95%;
+    height: auto;
+  }
+
+  #video-modal iframe {
+    height: 250px;
+  }
+}
