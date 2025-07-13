@@ -264,3 +264,11 @@ body {
     font-size: 0.8rem;
     width: 100%;
   }
+
+  .row h2 {
+    font-size: 1.2rem;
+  }
+
+  .row_poster {
+    max-height: 140px;
+  }
