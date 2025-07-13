@@ -74,3 +74,53 @@ body {
 .nav_button:hover {
   background-color: #f40612;
 }
+
+/* BANNER */
+#banner {
+  height: 644px;
+  color: white;
+  object-fit: contain;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+#banner_contents {
+  margin-left: 30px;
+  padding-top: 340px;
+  height: 190px;
+}
+
+#banner_title {
+  font-size: 3rem;
+  font-weight: 800;
+  padding-bottom: 0.3rem;
+}
+
+#banner_description {
+  width: 45rem;
+  line-height: 1.5;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  max-width: 360px;
+  height: 80px;
+}
+
+#banner_fadeBottom {
+  height: 7.4rem;
+  background: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+#banner_button {
+  padding: 8px 16px;
+  background-color: white;
+  color: black;
+  border: black;
+  border-radius: 3px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
