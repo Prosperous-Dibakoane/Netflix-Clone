@@ -374,3 +374,9 @@ body.modal-open {
   height: 100%;
   object-fit: cover;
 }
+
+@media (max-width: 768px) {
+  .trailer-wrapper iframe {
+    height: 250px;
+  }
+}
