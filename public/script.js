@@ -41,4 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
       container.style.display = "none";
     });
   }
+
+  // ⬇ Your existing code here:
+  recentBtn?.addEventListener("click", () => {
+    fetch("/recently-watched")
+      .then(res => res.json())
+      .then(data => {
+        console.log("✅ Recently Watched Response:", data); // ✅ ADD THIS
+
+        const headrow = document.getElementById("headrow");
+        headrow.innerHTML = "";
+        createSearchResultsRow("Recently Watched", data);
+      })
+      .catch(err => {
+        console.error("❌ Could not fetch watched history:", err);
+      });
+  });
   
