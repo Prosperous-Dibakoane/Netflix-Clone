@@ -105,3 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function handleMovieClick(movie) {
   const query = movie.title || movie.name || movie.original_title;
   const searchURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query + ' official trailer')}&key=******************api_requiredtype=video&maxResults=1`;
+
+  fetch(searchURL)
+    .then(res => res.json())
+    .then(data => {
+      if (data.items.length > 0) {
+        const videoId = data.items[0].id.videoId;
