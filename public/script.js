@@ -12,3 +12,17 @@ const requests = {
   fetchRomanceMovies: `${base_url}/discover/movie?api_key=${apiKey}&with_genres=10749`,
   fetchDocumentaries: `${base_url}/discover/movie?api_key=${apiKey}&with_genres=99`,
 };
+
+fetch(requests.fetchTrending)
+  .then((res) => res.json())
+  .then((data) => {
+    const movie = data.results[Math.floor(Math.random() * data.results.length)];
+    const banner = document.getElementById("banner");
+    const title = document.getElementById("banner_title");
+    const desc = document.getElementById("banner_description");
+
+    banner.style.backgroundImage = `url(${banner_url}${movie.backdrop_path})`;
+    title.textContent = movie.title || movie.name || "Title";
+    desc.textContent = truncate(movie.overview, 150);
+  });
+
