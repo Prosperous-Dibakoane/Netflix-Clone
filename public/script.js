@@ -144,3 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ">&times;</span>
           </div>
         `;
+
+        document.body.appendChild(trailerDiv);
+        document.body.classList.add("modal-open");
