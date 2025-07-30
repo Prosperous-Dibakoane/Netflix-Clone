@@ -30,3 +30,15 @@ function truncate(str, n) {
   return str?.length > n ? str.substr(0, n - 1) + "..." : str;
 }
 
+// RECENTLY WATCHED
+document.addEventListener("DOMContentLoaded", () => {
+
+  const intro = document.getElementById("intro-video");
+  const container = document.getElementById("intro-video-container");
+
+  if (intro) {
+    intro.addEventListener("ended", () => {
+      container.style.display = "none";
+    });
+  }
+  
