@@ -101,3 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
   createRow("Horror Movies", requests.fetchHorrorMovies);
   createRow("Romance Movies", requests.fetchRomanceMovies);
   createRow("Documentaries", requests.fetchDocumentaries);
+
+  function handleMovieClick(movie) {
+  const query = movie.title || movie.name || movie.original_title;
+  const searchURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query + ' official trailer')}&key=******************api_requiredtype=video&maxResults=1`;
