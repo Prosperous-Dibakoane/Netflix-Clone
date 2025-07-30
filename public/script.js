@@ -88,4 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
       headrow.appendChild(row);
     });
  }
+
+ window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".nav");
+    nav.classList.toggle("active", window.scrollY > 50);
+  });
   
