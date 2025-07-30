@@ -57,4 +57,20 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("❌ Could not fetch watched history:", err);
       });
   });
+
+  function createRow(titleText, fetchURL, isLarge = false) {
+  fetch(fetchURL)
+    .then((res) => res.json())
+    .then((data) => {
+      const headrow = document.getElementById("headrow");
+
+      const row = document.createElement("div");
+      row.className = "row";
+
+      const title = document.createElement("h2");
+      title.className = "row_title";
+      title.innerText = titleText;
+
+      const row_posters = document.createElement("div");
+      row_posters.className = "row_posters";
   
