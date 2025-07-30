@@ -310,3 +310,17 @@ body {
 #searchBtn:hover {
   background-color: #f40612;
 }
+
+/* ✅ Trailer Centered */
+#trailer-center-player {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.96);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
