@@ -132,3 +132,15 @@ document.addEventListener("DOMContentLoaded", () => {
             background: rgba(0,0,0,0.9);
             z-index: 9999;
           ">
+            <iframe width="800" height="450" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+            <span id="close-trailer" style="
+              position: absolute;
+              top: 20px;
+              right: 30px;
+              font-size: 32px;
+              color: white;
+              cursor: pointer;
+              font-weight: bold;
+            ">&times;</span>
+          </div>
+        `;
