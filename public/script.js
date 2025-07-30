@@ -111,3 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       if (data.items.length > 0) {
         const videoId = data.items[0].id.videoId;
+
+        // Remove existing trailer if present
+        const oldTrailer = document.getElementById("trailer-inline");
+        if (oldTrailer) oldTrailer.remove();
