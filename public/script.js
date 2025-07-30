@@ -98,3 +98,4 @@ document.addEventListener("DOMContentLoaded", () => {
   createRow("Trending Now", requests.fetchTrending);
   createRow("Action Movies", requests.fetchActionMovies);
   createRow("Comedy Movies", requests.fetchComedyMovies);
+  createRow("Horror Movies", requests.fetchHorrorMovies);
