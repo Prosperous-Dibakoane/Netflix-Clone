@@ -115,3 +115,20 @@ document.addEventListener("DOMContentLoaded", () => {
         // Remove existing trailer if present
         const oldTrailer = document.getElementById("trailer-inline");
         if (oldTrailer) oldTrailer.remove();
+
+        // Create new inline trailer
+        const trailerDiv = document.createElement("div");
+        trailerDiv.id = "trailer-inline";
+        trailerDiv.innerHTML = `
+          <div class="trailer-center" style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+          ">
