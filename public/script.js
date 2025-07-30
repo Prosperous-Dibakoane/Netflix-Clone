@@ -73,4 +73,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const row_posters = document.createElement("div");
       row_posters.className = "row_posters";
+
+      data.results.forEach((movie) => {
+        const poster = document.createElement("img");
+        poster.className = isLarge ? "row_posterLarge" : "row_poster";
+        poster.src = `${img_url}${movie.poster_path || movie.backdrop_path}`;
+        poster.alt = movie.name || movie.title;
+        poster.addEventListener("click", () => handleMovieClick(movie));
+        row_posters.appendChild(poster);
+      });
+
+      row.appendChild(title);
+      row.appendChild(row_posters);
+      headrow.appendChild(row);
+    });
+ }
   
