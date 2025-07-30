@@ -94,3 +94,5 @@ document.addEventListener("DOMContentLoaded", () => {
     nav.classList.toggle("active", window.scrollY > 50);
   });
   
+  createRow("Netflix Originals", requests.fetchNetflixOriginals, true);
+  
