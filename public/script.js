@@ -100,3 +100,4 @@ document.addEventListener("DOMContentLoaded", () => {
   createRow("Comedy Movies", requests.fetchComedyMovies);
   createRow("Horror Movies", requests.fetchHorrorMovies);
   createRow("Romance Movies", requests.fetchRomanceMovies);
+  createRow("Documentaries", requests.fetchDocumentaries);
