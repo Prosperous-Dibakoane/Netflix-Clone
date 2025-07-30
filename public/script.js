@@ -96,4 +96,4 @@ document.addEventListener("DOMContentLoaded", () => {
   
   createRow("Netflix Originals", requests.fetchNetflixOriginals, true);
   createRow("Trending Now", requests.fetchTrending);
-  
+  createRow("Action Movies", requests.fetchActionMovies);
