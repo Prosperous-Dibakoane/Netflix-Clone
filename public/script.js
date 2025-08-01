@@ -176,4 +176,10 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(() => {
         console.log("✅ Watched movie stored");
       })
-      
+      .catch(err => {
+        console.error("❌ Failed to store movie:", err);
+      });
+    } else {
+      console.warn("🚫 Trailer not found.");
+    }
+    
