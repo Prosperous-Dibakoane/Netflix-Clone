@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             return { success: true }; // fallback
           })
-          .then(() => {
-          console.log("✅ Watched movie stored");
-        })
+        .then(() => {
+        console.log("✅ Watched movie stored");
+      })
       
