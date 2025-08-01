@@ -147,3 +147,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.body.appendChild(trailerDiv);
         document.body.classList.add("modal-open");
+
+        // Close trailer
+        document.getElementById("close-trailer").onclick = () => {
+          trailerDiv.remove();
+          document.body.classList.remove("modal-open");
+        };
