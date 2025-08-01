@@ -17,3 +17,8 @@ body {
   max-width: 400px;
   text-align: center;
 }
+
+.form-box .logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
