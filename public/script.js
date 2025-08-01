@@ -234,3 +234,6 @@ function createSearchResultsRow(titleText, movies) {
       msg.style.color = "#888";
       row.appendChild(msg);
     }
+      headrow.appendChild(row);
+  }
+});
