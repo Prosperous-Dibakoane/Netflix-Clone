@@ -219,5 +219,7 @@ function createSearchResultsRow(titleText, movies) {
       poster.className = "row_poster";
       poster.src = `${img_url}${movie.poster_path}`;
       poster.alt = movie.name || movie.title || "Untitled";
-      
+      poster.addEventListener("click", () => handleMovieClick(movie));
+      row_posters.appendChild(poster);
+      added = true;
   });
