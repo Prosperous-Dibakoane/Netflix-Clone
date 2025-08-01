@@ -208,3 +208,6 @@ function createSearchResultsRow(titleText, movies) {
   const title = document.createElement("h2");
   title.className = "row_title";
   title.innerText = titleText;
+
+  const row_posters = document.createElement("div");
+  row_posters.className = "row_posters";
