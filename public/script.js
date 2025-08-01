@@ -204,3 +204,7 @@ function createSearchResultsRow(titleText, movies) {
   const headrow = document.getElementById("headrow");
   const row = document.createElement("div");
   row.className = "row";
+
+  const title = document.createElement("h2");
+  title.className = "row_title";
+  title.innerText = titleText;
