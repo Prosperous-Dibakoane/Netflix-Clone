@@ -198,4 +198,9 @@ searchBtn?.addEventListener("click", () => {
         headrow.innerHTML = "";
         createSearchResultsRow("Search Results", data.results);
       });
-    
+    });
+
+function createSearchResultsRow(titleText, movies) {
+  const headrow = document.getElementById("headrow");
+  const row = document.createElement("div");
+  row.className = "row";
