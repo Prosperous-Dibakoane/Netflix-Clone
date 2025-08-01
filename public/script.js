@@ -182,4 +182,10 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       console.warn("🚫 Trailer not found.");
     }
+  })
+  .catch(err => {
+    console.error("❌ YouTube API Error:", err);
+  });
+}
+
     
