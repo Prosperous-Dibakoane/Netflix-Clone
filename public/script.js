@@ -153,3 +153,14 @@ document.addEventListener("DOMContentLoaded", () => {
           trailerDiv.remove();
           document.body.classList.remove("modal-open");
         };
+
+        
+        // ✅ Store watched movie
+        // ✅ Correctly formatted fetch to /watched
+      fetch("/watched", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ movie }),
+      })
