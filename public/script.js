@@ -188,4 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 }
 
+const searchBtn = document.getElementById("searchBtn");
+searchBtn?.addEventListener("click", () => {
     
