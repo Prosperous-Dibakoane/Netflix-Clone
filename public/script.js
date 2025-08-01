@@ -211,3 +211,13 @@ function createSearchResultsRow(titleText, movies) {
 
   const row_posters = document.createElement("div");
   row_posters.className = "row_posters";
+
+  movies.forEach((movie) => {
+      if (!movie || !movie.poster_path) return;
+
+      const poster = document.createElement("img");
+      poster.className = "row_poster";
+      poster.src = `${img_url}${movie.poster_path}`;
+      poster.alt = movie.name || movie.title || "Untitled";
+      
+  });
