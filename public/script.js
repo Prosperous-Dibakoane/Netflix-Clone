@@ -223,3 +223,8 @@ function createSearchResultsRow(titleText, movies) {
       row_posters.appendChild(poster);
       added = true;
   });
+
+  row.appendChild(title);
+
+    if (added) {
+      row.appendChild(row_posters);
