@@ -51,3 +51,8 @@ button:hover {
 p {
   margin-top: 10px;
 }
+
+a {
+  color: #fff;
+  text-decoration: underline;
+}
