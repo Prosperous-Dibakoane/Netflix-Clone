@@ -228,3 +228,9 @@ function createSearchResultsRow(titleText, movies) {
 
     if (added) {
       row.appendChild(row_posters);
+    } else {
+      const msg = document.createElement("p");
+      msg.innerText = "No recently watched trailers available.";
+      msg.style.color = "#888";
+      row.appendChild(msg);
+    }
