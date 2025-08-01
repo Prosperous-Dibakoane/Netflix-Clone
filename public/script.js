@@ -190,4 +190,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const searchBtn = document.getElementById("searchBtn");
 searchBtn?.addEventListener("click", () => {
+  const input = document.getElementById("searchInput").value;
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(input)}`)
+      .then(res => res.json())
+      .then(data => {
+        const headrow = document.getElementById("headrow");
+        headrow.innerHTML = "";
+        createSearchResultsRow("Search Results", data.results);
+      });
     
