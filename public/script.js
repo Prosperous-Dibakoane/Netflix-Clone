@@ -164,3 +164,13 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         body: JSON.stringify({ movie }),
       })
+        .then(res => {
+            if (!res.ok) throw new Error("Failed to save watched movie");
+
+            const contentType = res.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+              return res.json();
+            }
+            return { success: true }; // fallback
+          })
+      
