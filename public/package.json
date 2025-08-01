@@ -1,0 +1,9 @@
+{
+  "name": "netflix-clone-server",
+  "version": "1.0.0",
+  "description": "Netflix clone with TMDB integration and authentication",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
