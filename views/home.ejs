@@ -26,3 +26,17 @@
       <input type="text" id="searchInput" placeholder="Search for a movie..." />
       <button id="searchBtn">🔍</button>
     </div>
+
+    <div class="nav_right">
+      <% if (session && session.username) { %>
+        <span style="font-weight: 600; font-size: 1rem;">
+          🍿 Welcome back, <%= session.username %>! Grab your snacks.
+        </span>
+        <button id="recentBtn" class="nav_button">Recently Watched</button>
+        <a href="/login" class="nav_button">Logout</a>
+      <% } else { %>
+        <a href="/login" class="nav_button">Login/Sign-in</a>
+      <% } %>  
+    </div>
+
+  </div>
