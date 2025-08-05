@@ -81,3 +81,10 @@ router.post('/register', async (req, res) => {
     res.status(500).send("Server error during registration.");
   }
 });
+
+
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await User.findOne({ where: { username } });
