@@ -102,3 +102,10 @@ router.post("/login", async (req, res) => {
     req.session.userId = user.id;
     req.session.username = user.username;
     req.session.email = user.email;
+
+    res.redirect("/");
+  } catch (err) {
+    console.error("Login error:", err);
+    res.status(500).send("Something went wrong during login.");
+  }
+});
