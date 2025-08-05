@@ -66,3 +66,11 @@ router.post('/register', async (req, res) => {
     if (existingEmail) {
       return res.send("Email already used.");
     }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    await db.User.create({
+      username,
+      email,
+      password: hashedPassword,
+    });
