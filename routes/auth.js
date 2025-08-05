@@ -88,3 +88,7 @@ router.post("/login", async (req, res) => {
 
   try {
     const user = await User.findOne({ where: { username } });
+
+    if (!user) {
+      return res.status(401).send("User not found.");
+    }
