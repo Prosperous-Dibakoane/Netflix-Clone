@@ -37,3 +37,7 @@ router.get('/logout', (req, res) => {
     res.redirect('/');
   });
 });
+
+router.get("/register", (req, res) => {
+  res.render("register");
+});
