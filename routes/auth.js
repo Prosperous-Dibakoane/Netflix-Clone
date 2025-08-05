@@ -48,3 +48,9 @@ router.post('/register', async (req, res) => {
   if (!username || !email || !password) {
     return res.send("All fields are required.");
   }
+
+   try {
+    // Check if username or email is taken
+    const existingUser = await db.User.findOne({
+      where: { username }
+    });
