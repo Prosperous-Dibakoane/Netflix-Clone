@@ -58,3 +58,7 @@ router.post('/register', async (req, res) => {
     if (existingUser) {
       return res.send("Username already taken.");
     }
+
+    const existingEmail = await db.User.findOne({
+      where: { email }
+    });
