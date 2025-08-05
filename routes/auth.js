@@ -98,3 +98,7 @@ router.post("/login", async (req, res) => {
     if (!isMatch) {
       return res.status(401).send("Incorrect password.");
     }
+
+    req.session.userId = user.id;
+    req.session.username = user.username;
+    req.session.email = user.email;
