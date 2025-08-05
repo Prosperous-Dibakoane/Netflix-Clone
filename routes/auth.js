@@ -12,3 +12,10 @@ router.get('/', (req, res) => {
 router.get("/login", (req, res) => {
   res.render("login");
 });
+
+router.get('/auth/google',
+  passport.authenticate('google', {
+    scope: ['profile', 'email'],
+    prompt: 'select_account' // 👈 Forces account selection even if already signed in
+  })
+);
