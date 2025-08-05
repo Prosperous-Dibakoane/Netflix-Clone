@@ -109,3 +109,11 @@ router.post("/login", async (req, res) => {
     res.status(500).send("Something went wrong during login.");
   }
 });
+
+router.get("/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/login"); // ✅ FIXED from /auth/login
+  });
+});
+
+module.exports = router;
