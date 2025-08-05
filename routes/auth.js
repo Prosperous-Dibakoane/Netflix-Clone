@@ -19,3 +19,14 @@ router.get('/auth/google',
     prompt: 'select_account' // 👈 Forces account selection even if already signed in
   })
 );
+
+router.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  (req, res) => {
+    // Set session values
+    req.session.username = req.user.username;
+    req.session.email = req.user.email;
+
+    res.redirect('/'); // Or wherever you want
+  }
+);
