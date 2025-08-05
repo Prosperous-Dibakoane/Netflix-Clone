@@ -74,3 +74,10 @@ router.post('/register', async (req, res) => {
       email,
       password: hashedPassword,
     });
+
+    res.redirect('/login');
+  } catch (err) {
+    console.error('Registration error:', err);
+    res.status(500).send("Server error during registration.");
+  }
+});
