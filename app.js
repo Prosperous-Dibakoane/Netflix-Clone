@@ -37,3 +37,10 @@ app.get('/', (req, res) => {
 app.use((req, res) => {
   res.status(404).send(`404 Not Found: ${req.originalUrl}`);
 });
+
+
+// Start server
+sequelize.sync().then(() => {
+  app.listen(3000, () => {
+    console.log('Server running on http://localhost:3000');
+  });
