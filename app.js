@@ -7,3 +7,6 @@ const sequelize = db.sequelize;
 const app = express();
 
 const passport = require('./config/passport'); 
+
+// Middleware
+app.use(express.urlencoded({ extended: true }));
