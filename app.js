@@ -19,4 +19,3 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
-et up Express session middleware with secure and optimized options"
