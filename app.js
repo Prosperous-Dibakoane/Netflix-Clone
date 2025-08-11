@@ -17,3 +17,6 @@ app.use(express.static('public'));
 app.use(session({
   secret: process.env.SESSION_SECRET || 'keyboard cat',
   resave: false,
+  saveUninitialized: false,
+}));
+et up Express session middleware with secure and optimized options"
