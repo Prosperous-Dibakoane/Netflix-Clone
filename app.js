@@ -28,3 +28,7 @@ app.set('view engine', 'ejs');
 
 app.use('/', require('./routes/auth'));
 app.use('/', require('./routes/movies')); 
+
+app.get('/', (req, res) => {
+  res.render('home', { session: req.session });
+});
