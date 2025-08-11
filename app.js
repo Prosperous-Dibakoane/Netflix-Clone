@@ -10,3 +10,5 @@ const passport = require('./config/passport');
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // ✅ for JSON POST bodies
+app.use(express.static('public'));
