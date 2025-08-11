@@ -35,3 +35,7 @@ passport.deserializeUser(async (id, done) => {
   try {
     const user = await db.User.findByPk(id);
     done(null, user);
+  } catch (err) {
+    done(err, null);
+  }
+});
