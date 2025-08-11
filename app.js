@@ -22,3 +22,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+// View engine
+app.set('view engine', 'ejs');
