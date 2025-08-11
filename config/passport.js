@@ -26,3 +26,7 @@ async (accessToken, refreshToken, profile, done) => {
     return done(err, null);
   }
 }));
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
