@@ -25,3 +25,6 @@ app.use(passport.session());
 
 // View engine
 app.set('view engine', 'ejs');
+
+app.use('/', require('./routes/auth'));
+app.use('/', require('./routes/movies')); 
