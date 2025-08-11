@@ -30,3 +30,8 @@ async (accessToken, refreshToken, profile, done) => {
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await db.User.findByPk(id);
+    done(null, user);
