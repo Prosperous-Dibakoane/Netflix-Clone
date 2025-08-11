@@ -11,3 +11,12 @@ passport.use(new GoogleStrategy({
 async (accessToken, refreshToken, profile, done) => {
   try {
     const email = profile.emails[0].value;
+
+    const [user] = await db.User.findOrCreate({
+      where: { email },
+      defaults: {
+        username: profile.displayName,
+        email: email,
+        password: 'google-oauth'
+      }
+    });
