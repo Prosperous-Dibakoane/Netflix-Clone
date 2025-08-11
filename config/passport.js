@@ -20,3 +20,9 @@ async (accessToken, refreshToken, profile, done) => {
         password: 'google-oauth'
       }
     });
+
+    return done(null, user);
+  } catch (err) {
+    return done(err, null);
+  }
+}));
