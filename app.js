@@ -32,3 +32,8 @@ app.use('/', require('./routes/movies'));
 app.get('/', (req, res) => {
   res.render('home', { session: req.session });
 });
+
+// 404 Debugging Helper
+app.use((req, res) => {
+  res.status(404).send(`404 Not Found: ${req.originalUrl}`);
+});
