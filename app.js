@@ -12,3 +12,8 @@ const passport = require('./config/passport');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // ✅ for JSON POST bodies
 app.use(express.static('public'));
+
+// Sessions
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'keyboard cat',
+  resave: false,
