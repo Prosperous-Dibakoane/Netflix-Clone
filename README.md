@@ -17,17 +17,4 @@ Welcome to the Netflix Clone App — a fun and sleek streaming UI experience whe
 ✅ Recently Watched tracking per session  
 ✅ Mobile and desktop responsive
 
----
-
-## 🧰 Tech Stack
-
-- **Frontend:** HTML, CSS, JavaScript
-- **Templating:** EJS
-- **Backend:** Node.js, Express.js
-- **Database (optional):** Sequelize + SQLite or MySQL *(optional, not heavily used)*
-- **APIs Used:**
-  - [The Movie Database (TMDb) API](https://www.themoviedb.org/documentation/api)
-  - [YouTube Data API](https://developers.google.com/youtube/v3)
-
----
 
