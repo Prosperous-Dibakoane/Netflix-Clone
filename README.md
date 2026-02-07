@@ -18,3 +18,4 @@ Welcome to the Netflix Clone App — a fun and sleek streaming UI experience whe
 ✅ Mobile and desktop responsive
 
 
+![Demo Screenshot](netflix.png)
