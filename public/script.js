@@ -1,4 +1,4 @@
-const apiKey = "**";
+const apiKey = "2ae6e0c3138e71f83ad8a5948a877847";
 const base_url = "https://api.themoviedb.org/3";
 const img_url = "https://image.tmdb.org/t/p/w300";
 const banner_url = "https://image.tmdb.org/t/p/original";
@@ -30,6 +30,7 @@ function truncate(str, n) {
   return str?.length > n ? str.substr(0, n - 1) + "..." : str;
 }
 
+
 // RECENTLY WATCHED
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
       container.style.display = "none";
     });
   }
-
+  
   // ⬇ Your existing code here:
   recentBtn?.addEventListener("click", () => {
     fetch("/recently-watched")
@@ -57,6 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("❌ Could not fetch watched history:", err);
       });
   });
+
+
 
   function createRow(titleText, fetchURL, isLarge = false) {
   fetch(fetchURL)
@@ -89,11 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
  }
 
- window.addEventListener("scroll", () => {
+  window.addEventListener("scroll", () => {
     const nav = document.querySelector(".nav");
     nav.classList.toggle("active", window.scrollY > 50);
   });
-  
+
   createRow("Netflix Originals", requests.fetchNetflixOriginals, true);
   createRow("Trending Now", requests.fetchTrending);
   createRow("Action Movies", requests.fetchActionMovies);
@@ -104,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleMovieClick(movie) {
   const query = movie.title || movie.name || movie.original_title;
-  const searchURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query + ' official trailer')}&key=******************api_requiredtype=video&maxResults=1`;
+  const searchURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query + ' official trailer')}&key=AIzaSyBpS9BtONOBFiOyTU48tbl-2Y9mzEYwqsw&type=video&maxResults=1`;
 
   fetch(searchURL)
     .then(res => res.json())
@@ -154,7 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
           document.body.classList.remove("modal-open");
         };
 
-        
         // ✅ Store watched movie
         // ✅ Correctly formatted fetch to /watched
       fetch("/watched", {
@@ -165,32 +167,34 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify({ movie }),
       })
         .then(res => {
-            if (!res.ok) throw new Error("Failed to save watched movie");
+          if (!res.ok) throw new Error("Failed to save watched movie");
 
-            const contentType = res.headers.get("content-type");
-            if (contentType && contentType.includes("application/json")) {
-              return res.json();
-            }
-            return { success: true }; // fallback
-          })
+          const contentType = res.headers.get("content-type");
+          if (contentType && contentType.includes("application/json")) {
+            return res.json();
+          }
+          return { success: true }; // fallback
+        })
         .then(() => {
-        console.log("✅ Watched movie stored");
-      })
-      .catch(err => {
-        console.error("❌ Failed to store movie:", err);
-      });
-    } else {
-      console.warn("🚫 Trailer not found.");
-    }
-  })
-  .catch(err => {
-    console.error("❌ YouTube API Error:", err);
-  });
-}
+          console.log("✅ Watched movie stored");
+        })
+        .catch(err => {
+          console.error("❌ Failed to store movie:", err);
+        });
+      } else {
+        console.warn("🚫 Trailer not found.");
+      }
+    })
+    .catch(err => {
+      console.error("❌ YouTube API Error:", err);
+    });
+  }
 
-const searchBtn = document.getElementById("searchBtn");
-searchBtn?.addEventListener("click", () => {
-  const input = document.getElementById("searchInput").value;
+
+  // SEARCH
+  const searchBtn = document.getElementById("searchBtn");
+  searchBtn?.addEventListener("click", () => {
+    const input = document.getElementById("searchInput").value;
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodeURIComponent(input)}`)
       .then(res => res.json())
       .then(data => {
@@ -198,21 +202,23 @@ searchBtn?.addEventListener("click", () => {
         headrow.innerHTML = "";
         createSearchResultsRow("Search Results", data.results);
       });
-    });
+  });
 
-function createSearchResultsRow(titleText, movies) {
-  const headrow = document.getElementById("headrow");
-  const row = document.createElement("div");
-  row.className = "row";
+  function createSearchResultsRow(titleText, movies) {
+    const headrow = document.getElementById("headrow");
+    const row = document.createElement("div");
+    row.className = "row";
 
-  const title = document.createElement("h2");
-  title.className = "row_title";
-  title.innerText = titleText;
+    const title = document.createElement("h2");
+    title.className = "row_title";
+    title.innerText = titleText;
 
-  const row_posters = document.createElement("div");
-  row_posters.className = "row_posters";
+    const row_posters = document.createElement("div");
+    row_posters.className = "row_posters";
 
-  movies.forEach((movie) => {
+    let added = false;
+
+    movies.forEach((movie) => {
       if (!movie || !movie.poster_path) return;
 
       const poster = document.createElement("img");
@@ -222,9 +228,9 @@ function createSearchResultsRow(titleText, movies) {
       poster.addEventListener("click", () => handleMovieClick(movie));
       row_posters.appendChild(poster);
       added = true;
-  });
+    });
 
-  row.appendChild(title);
+    row.appendChild(title);
 
     if (added) {
       row.appendChild(row_posters);
@@ -234,6 +240,14 @@ function createSearchResultsRow(titleText, movies) {
       msg.style.color = "#888";
       row.appendChild(msg);
     }
-      headrow.appendChild(row);
+
+    headrow.appendChild(row);
   }
+
+
+
+
+  // Also include createRow(), handleMovieClick(), etc. here
 });
+
+

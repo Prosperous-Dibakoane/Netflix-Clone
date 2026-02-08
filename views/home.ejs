@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Netflix Clone</title>
   <link rel="stylesheet" href="/style.css" />
-  <link rel="icon" href="/public/logo.png" type="image/png" />
+  <link rel="icon" href="/logo.png" type="image/png" />
 </head>
-
 <body>
 
   <!-- Intro Video -->
@@ -17,6 +16,7 @@
       Your browser does not support the video tag.
     </video>
   </div>
+
 
   <!-- ✅ Navbar -->
   <div class="nav">
@@ -28,10 +28,15 @@
     </div>
 
     <div class="nav_right">
-      <span style="font-weight: 600; font-size: 1rem;">
-        🍿 Welcome back,  Grab your snacks.
-      </span>
-      <button id="recentBtn" class="nav_button">Recently Watched</button>
+      <% if (session && session.username) { %>
+        <span style="font-weight: 600; font-size: 1rem;">
+          🍿 Welcome back, <%= session.username %>! Grab your snacks.
+        </span>
+        <button id="recentBtn" class="nav_button">Recently Watched</button>
+        <a href="/login" class="nav_button">Logout</a>
+      <% } else { %>
+        <a href="/login" class="nav_button">Login/Sign-in</a>
+      <% } %>  
     </div>
 
   </div>

@@ -1,3 +1,4 @@
+/* RESET & BASE STYLES */
 * {
   margin: 0;
   padding: 0;
@@ -74,6 +75,7 @@ body {
 .nav_button:hover {
   background-color: #f40612;
 }
+
 
 /* BANNER */
 #banner {
@@ -168,6 +170,7 @@ body {
   border-radius: 6px;
 }
 
+/* ✅ TRAILER MODAL */
 #video-modal {
   position: fixed;
   top: 0;
@@ -213,6 +216,7 @@ body {
   z-index: 10001;
 }
 
+/* INTRO ANIMATION */
 #intro {
   position: fixed;
   background: black;
@@ -229,7 +233,6 @@ body {
   width: 200px;
   animation: scaleUp 1.2s ease;
 }
-
 
 @keyframes scaleUp {
   0% { transform: scale(0); opacity: 0; }
@@ -311,6 +314,7 @@ body {
   background-color: #f40612;
 }
 
+
 /* ✅ Trailer Centered */
 #trailer-center-player {
   position: fixed;
@@ -374,6 +378,7 @@ body.modal-open {
   height: 100%;
   object-fit: cover;
 }
+
 
 @media (max-width: 768px) {
   .trailer-wrapper iframe {

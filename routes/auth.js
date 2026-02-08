@@ -1,0 +1,131 @@
+const express = require("express");
+const router = express.Router();
+const bcrypt = require("bcrypt");
+const { User } = require("../models");
+const db = require('../models');
+const passport = require('../config/passport');
+
+// ✅ Render homepage
+router.get('/', (req, res) => {
+  res.render('home', { session: req.session });
+});
+
+// GET: Show login form
+router.get("/login", (req, res) => {
+  res.render("login");
+});
+
+
+// Start OAuth login
+router.get('/auth/google',
+  passport.authenticate('google', {
+    scope: ['profile', 'email'],
+    prompt: 'select_account' // 👈 Forces account selection even if already signed in
+  })
+);
+
+// Callback route
+router.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  (req, res) => {
+    // Set session values
+    req.session.username = req.user.username;
+    req.session.email = req.user.email;
+
+    res.redirect('/'); // Or wherever you want
+  }
+);
+
+
+// Logout
+router.get('/logout', (req, res) => {
+  req.logout(err => {
+    if (err) return next(err);
+    res.redirect('/');
+  });
+});
+
+// GET: Show register form
+router.get("/register", (req, res) => {
+  res.render("register");
+});
+
+// POST: Handle registration
+// REGISTER ROUTE
+router.post('/register', async (req, res) => {
+  const { username, email, password } = req.body;
+
+  if (!username || !email || !password) {
+    return res.send("All fields are required.");
+  }
+
+  try {
+    // Check if username or email is taken
+    const existingUser = await db.User.findOne({
+      where: { username }
+    });
+
+    if (existingUser) {
+      return res.send("Username already taken.");
+    }
+
+    const existingEmail = await db.User.findOne({
+      where: { email }
+    });
+
+    if (existingEmail) {
+      return res.send("Email already used.");
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    await db.User.create({
+      username,
+      email,
+      password: hashedPassword,
+    });
+
+    res.redirect('/login');
+  } catch (err) {
+    console.error('Registration error:', err);
+    res.status(500).send("Server error during registration.");
+  }
+});
+
+
+// POST: Handle login
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await User.findOne({ where: { username } });
+
+    if (!user) {
+      return res.status(401).send("User not found.");
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.status(401).send("Incorrect password.");
+    }
+
+    req.session.userId = user.id;
+    req.session.username = user.username;
+    req.session.email = user.email;
+
+    res.redirect("/");
+  } catch (err) {
+    console.error("Login error:", err);
+    res.status(500).send("Something went wrong during login.");
+  }
+});
+
+// GET: Handle logout
+router.get("/logout", (req, res) => {
+  req.session.destroy(() => {
+    res.redirect("/login"); // ✅ FIXED from /auth/login
+  });
+});
+
+module.exports = router;
